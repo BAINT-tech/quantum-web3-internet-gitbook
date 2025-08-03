@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chapter 1: Foundations of Quantum Computing - QUANTUM•WEB3•INTERNET</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">QUANTUM•WEB3•INTERNET</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="chapter-1-foundations-of-quantum-computing"><a class="header" href="#chapter-1-foundations-of-quantum-computing">Chapter 1: Foundations of Quantum Computing</a></h1>
+<p>Quantum computing is a revolutionary paradigm that leverages the principles of quantum mechanics to perform computations. Unlike classical computers that rely on bits, quantum computers use qubits, which can exist in multiple states simultaneously, enabling them to process vast amounts of information in parallel. This chapter will delve into the fundamental concepts that underpin quantum computing.</p>
+<h2 id="qubits-vs-classical-bits"><a class="header" href="#qubits-vs-classical-bits">Qubits vs Classical Bits</a></h2>
+<p>In classical computing, information is stored and processed using bits, which can represent either a 0 or a 1. These discrete states are the building blocks of all classical computation. Transistors in a computer chip are either on or off, representing these binary states. Classical bits are deterministic; their state is always precisely known.</p>
+<p>Qubits, or quantum bits, are the fundamental units of information in quantum computing. What distinguishes qubits from classical bits is their ability to exist in a superposition of states. This means a qubit can be 0, 1, or a combination of both 0 and 1 simultaneously. This property dramatically increases the information density and processing potential of quantum systems. For example, two classical bits can be in one of four states (00, 01, 10, 11) at any given time. Two qubits, however, can be in a superposition of all four states simultaneously. As the number of qubits increases, the number of possible states they can represent grows exponentially ($2^n$ for n qubits), a phenomenon that underpins the immense power of quantum computers for certain problems.</p>
+<h2 id="superposition-entanglement-and-interference"><a class="header" href="#superposition-entanglement-and-interference">Superposition, Entanglement, and Interference</a></h2>
+<p>These three quantum phenomena are the cornerstones of quantum computation:</p>
+<h3 id="superposition"><a class="header" href="#superposition">Superposition</a></h3>
+<p>Superposition is the ability of a quantum system to exist in multiple states at once until it is measured. Imagine a spinning coin: while it's in the air, it's neither heads nor tails, but a superposition of both. Only when it lands and is observed does it collapse into a definite state. Similarly, a qubit can be in a superposition of |0⟩ and |1⟩. Mathematically, a qubit's state can be represented as a linear combination of its basis states:</p>
+<p>$|\psi\rangle = \alpha|0\rangle + \beta|1\rangle$</p>
+<p>where $\alpha$ and $\beta$ are complex probability amplitudes, and $|\alpha|^2 + |\beta|^2 = 1$. When measured, the qubit collapses to either |0⟩ with probability $|\alpha|^2$ or |1⟩ with probability $|\beta|^2$.</p>
+<h3 id="entanglement"><a class="header" href="#entanglement">Entanglement</a></h3>
+<p>Entanglement is a peculiar and powerful quantum phenomenon where two or more qubits become linked in such a way that the state of one qubit instantaneously influences the state of the others, regardless of the distance separating them. This interconnectedness is a key resource for quantum computation and communication. If two qubits are entangled, measuring the state of one immediately determines the state of the other, even if they are light-years apart. This non-local correlation is what Einstein famously called</p>
+<p>"spooky action at a distance." Entanglement is crucial for quantum algorithms like Shor's and Grover's, enabling computational speedups not possible with classical computers.</p>
+<h3 id="interference"><a class="header" href="#interference">Interference</a></h3>
+<p>Quantum interference is the phenomenon where quantum states can interfere with each other, similar to how waves can interfere. In quantum computing, this property is harnessed to amplify the probabilities of correct answers and diminish the probabilities of incorrect ones. By carefully designing quantum circuits, we can manipulate the probability amplitudes of different computational paths, causing them to constructively interfere (reinforce) for desired outcomes and destructively interfere (cancel out) for undesired outcomes. This allows quantum algorithms to efficiently explore a vast solution space and converge on the correct answer.</p>
+<h2 id="quantum-gates--circuits"><a class="header" href="#quantum-gates--circuits">Quantum Gates &amp; Circuits</a></h2>
+<p>Just as classical computers use logic gates (AND, OR, NOT) to manipulate bits, quantum computers use quantum gates to manipulate qubits. Quantum gates are unitary transformations that preserve the total probability of the quantum state. They are reversible, meaning that information is never lost during a quantum operation. Some common quantum gates include:</p>
+<ul>
+<li><strong>Pauli-X gate (NOT gate):</strong> Flips the state of a qubit, transforming |0⟩ to |1⟩ and |1⟩ to |0⟩.</li>
+<li><strong>Hadamard gate (H gate):</strong> Creates a superposition. It transforms |0⟩ into $(|0\rangle + |1\rangle)/\sqrt{2}$ and |1⟩ into $(|0\rangle - |1\rangle)/\sqrt{2}$.</li>
+<li><strong>Controlled-NOT gate (CNOT gate):</strong> A two-qubit gate where the state of a target qubit is flipped if and only if the control qubit is in the |1⟩ state. This gate is essential for creating entanglement between qubits.</li>
+<li><strong>Toffoli gate (CCNOT gate):</strong> A three-qubit gate that is universal for classical computation. It flips the state of the target qubit if and only if both control qubits are in the |1⟩ state.</li>
+</ul>
+<p>Quantum circuits are sequences of quantum gates applied to qubits to perform a computation. These circuits are designed to exploit superposition, entanglement, and interference to solve specific problems more efficiently than classical algorithms.</p>
+<h2 id="introduction-to-qiskit"><a class="header" href="#introduction-to-qiskit">Introduction to Qiskit</a></h2>
+<p>Qiskit is an open-source SDK (Software Development Kit) for working with quantum computers at the level of circuits, algorithms, and application modules. Developed by IBM, Qiskit allows users to program quantum computers and simulators using Python. It provides tools for creating and manipulating quantum circuits, running experiments on quantum hardware (via IBM Quantum Experience), and simulating quantum computations.</p>
+<p>Qiskit is structured into several main components:</p>
+<ul>
+<li><strong>Terra:</strong> The foundational layer for composing quantum programs at the level of circuits and pulses.</li>
+<li><strong>Aer:</strong> A high-performance simulator framework for quantum circuits.</li>
+<li><strong>Ignis:</strong> A framework for quantum hardware characterization, noise mitigation, and error correction.</li>
+<li><strong>Aqua:</strong> A library of quantum algorithms and applications, including algorithms for optimization, chemistry, and machine learning.</li>
+</ul>
+<p>Qiskit simplifies the process of quantum programming, making it accessible to a wider audience of developers, researchers, and students. It provides a robust framework for exploring the potential of quantum computing and developing quantum applications.</p>
+<pre><code class="language-python">from qiskit import QuantumCircuit, transpile, Aer, assemble
+from qiskit.visualization import plot_histogram
+
+# Create a quantum circuit with 2 qubits and 2 classical bits
+qc = QuantumCircuit(2, 2)
+
+# Apply a Hadamard gate to the first qubit, putting it in superposition
+qc.h(0)
+
+# Apply a CNOT gate with the first qubit as control and second as target
+qc.cx(0, 1)
+
+# Measure both qubits
+qc.measure([0, 1], [0, 1])
+
+# Draw the circuit
+print(qc.draw())
+
+# Simulate the circuit
+simulator = Aer.get_backend("qasm_simulator")
+job = assemble(transpile(qc, simulator), simulator)
+result = simulator.run(job).result()
+counts = result.get_counts(qc)
+print("\nCounts:", counts)
+
+# Expected output for counts will be approximately 50% '00' and 50% '11'
+# due to entanglement created by the H and CNOT gates.
+</code></pre>
+<p>This simple Qiskit example demonstrates how to create a quantum circuit, apply gates to create superposition and entanglement, and then simulate the circuit to observe the measurement outcomes. It serves as a basic introduction to the practical aspects of quantum programming.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-2-blockchain-quantum.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-2-blockchain-quantum.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
