@@ -1,0 +1,33 @@
+{
+  "title": "QUANTUM•WEB3•INTERNET",
+  "description": "Exploring the convergence of quantum computing, blockchain technology, and decentralized networks",
+  "author": "Quantum Web3 Team",
+  "language": "en",
+  "gitbook": "3.2.3",
+  "plugins": [
+    "theme-default",
+    "search",
+    "sharing",
+    "fontsettings",
+    "livereload"
+  ],
+  "pluginsConfig": {
+    "theme-default": {
+      "showLevel": true,
+      "logo": "banner.png"
+    },
+    "sharing": {
+      "facebook": true,
+      "twitter": true,
+      "google": false,
+      "weibo": false,
+      "instapaper": false,
+      "vk": false,
+      "all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+    }
+  },
+  "variables": {
+    "version": "1.0.0"
+  }
+}
+
